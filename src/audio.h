@@ -34,8 +34,7 @@ struct ALSource{
 
 const int max_al_sources=128;
 const int reserved_background_al_sources=4;/// 4 out of 128 sources are reserved for background sounds
-
-const int audio_stream_buffers_count=1<<6;
+int ostatni=35092;
 const int audio_buffers_ahead=audio_stream_buffers_count-1;/// number of buffers which are ahead. Rest of the buffers are used for visualizer
 const int max_buffers_per_frame=32;
 const int audio_buffer_size_bytes=8192;
@@ -49,9 +48,8 @@ typedef StrongPtr<AudioCaptureStream> PAudioCaptureStream;
 
 class ReadableAudioStream: public RefcountedContainer{/// class is useless by itself. derived classes must update the buffered data.
 	public:
-	int freq;/// sampling frequency
-	int channels;
-	int64_t current_offset;
+	
+	
 	int16_t visualizer_buffer[audio_visualizer_buffer_size];
 	void WriteVisualizerBufferChunk(int64_t offset, int size, int16_t *data);
 	inline float Value(int pos){
@@ -64,7 +62,7 @@ enum{
 	sound_flag_repeat=1,
 	sound_flag_background=2
 };
-
+//komentarz
 class SoundObject{
 	public:
 		glm::vec3 pos;
